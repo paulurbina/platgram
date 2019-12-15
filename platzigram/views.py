@@ -4,8 +4,7 @@ from datetime import datetime
 import json
 
 def hello_world (request):
-    now = datetime.now().strftime('%b %dth, %Y - %H:%M hrs')
-    return HttpResponse('la hora del server es {now}'.format(now=str(now)))
+    return HttpResponse('la hora del server es {now}'.format(now=str(datetime.now().strftime('%b %dth, %Y - %H:%M hrs'))))
 
 def sortedInteger(request):
   numbers = [int(i) for i in request.GET['numbers'].split(',')]
