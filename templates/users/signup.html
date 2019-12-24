@@ -1,0 +1,41 @@
+{% extends "users/base.html" %}
+
+{% block head_content %}
+<title>Platzigram Signup</title>
+{% endblock %}
+
+{% block container %}
+    {% if error %}
+    <div class="alert alert-danger text-center" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="text-center">
+        <h2>Sing Up!</h2>
+    </div>
+  <form action="{% url 'signup' %}" method="POST">
+      {% csrf_token %}
+    <div class="form-group">
+      <input type="text" placeholder="Username" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp" required=true>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <input type="email" placeholder="Email" class="form-control" name="email" id="exampleInputPassword1" required=true>
+      </div>
+    <div class="form-group">
+      <input type="password" placeholder="Password" class="form-control" name="password" id="exampleInputPassword1" required=true>
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password confirmation" class="form-control" name="password_confirmation" id="exampleInputPassword1" required=true>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="First Name" class="form-control" name="first_name" id="exampleInputPassword1" required=true>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Last Name" class="form-control" name="last_name" id="exampleInputPassword1" required=true>
+      </div>
+      
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+
+{% endblock %}
